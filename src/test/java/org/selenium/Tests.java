@@ -11,7 +11,7 @@ public class Tests extends MainTest {
     @Test
     public void testRegistrationForm (){
         header = new Header(driver);
-        header.createAccountForUser();
+        header.navigateToRegistrationForm();
 
 
 
