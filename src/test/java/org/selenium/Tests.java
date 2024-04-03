@@ -1,9 +1,10 @@
-package selenium;
+package org.selenium;
 
+import org.selenium.base.MainTest;
 import org.testng.annotations.Test;
-import selenium.Page.Header;
+import org.selenium.page.Header;
 
-public class Tests extends MainDriver {
+public class Tests extends MainTest {
     Header header;
 
 
