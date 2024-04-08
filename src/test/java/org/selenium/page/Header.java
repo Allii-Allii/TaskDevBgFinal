@@ -8,11 +8,8 @@ public class Header extends BasePage {
     @FindBy(css = ".button.bold.subscriber-register-btn")
     private WebElement createAccountButton;
 
-    public Header(WebDriver driver) {
-
-        super(driver);
-    }
     public void navigateToRegistrationForm() {
+
         createAccountButton.click();
     }
 }

@@ -21,7 +21,7 @@ public class MainTest {
     private String url;
     private int implicitWait;
     private String browser;
-    public WebDriver driver;
+   // public WebDriver driver;
 
 
     @BeforeMethod
@@ -31,6 +31,7 @@ public class MainTest {
     }
 
     private void loadUrl() {
+        WebDriver driver = DriverFactory.getDriver();
         driver.get(url);
     }
 
@@ -47,10 +48,10 @@ public class MainTest {
         }
         switch (browser) {
             case "chrome":
-                driver = DriverFactory.getChromeDriver(implicitWait);
+                DriverFactory.setChromeDriver(implicitWait);
                 break;
             case "firefox":
-                driver = DriverFactory.getFirefoxDriver(implicitWait);
+                DriverFactory.setFirefoxDriver(implicitWait);
                 break;
             default:
                 //  log.error("Unsupported browser type");
@@ -60,6 +61,7 @@ public class MainTest {
 
     @AfterMethod
     public void tearDown(ITestResult result) {
+        WebDriver driver = DriverFactory.getDriver();
         if (ITestResult.FAILURE == result.getStatus()) {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
@@ -72,7 +74,7 @@ public class MainTest {
                 e.printStackTrace();
             }
         }
-        driver.quit();
+        DriverFactory.quitDriver();
     }
 }
 
