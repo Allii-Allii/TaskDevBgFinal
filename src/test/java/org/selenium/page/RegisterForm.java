@@ -28,33 +28,41 @@ public class RegisterForm extends BasePage {
     private WebElement errorMassageCheckMark;
 
     public void enterFNameField (String fName){
+
         fNameField.sendKeys(fName);
     }
 
     public void enterLNameField (String lName){
+
         lNameField.sendKeys(lName);
     }
 
     public void enterEmailField (String email) {
+
         emailField.sendKeys(email);
     }
 
     public void enterPassField (String password) {
+
         passField.sendKeys(password);
     }
 
     public void clickCheck (){
+
         checkMark.click();
     }
     public void clickCrNewProfButton(){
+
         createProfileButton.click();
     }
 
     public String getPasswordFieldColor(){
-        return passField.getCssValue("color");
+        return
+                passField.getCssValue("color");
     }
 
     public String getEmailFieldColor(){
+
         return emailField.getCssValue("color");
     }
 

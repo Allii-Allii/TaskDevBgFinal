@@ -20,11 +20,13 @@ public class DriverFactory {
 
 
     public static void setChromeDriver(int wait) {
-       // Map<String, String> mobileEmulation = Map.of("deviceName", "Nexus 5");
+       //Map<String, String> mobileEmulation = Map.of("deviceName", "Nexus 5");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
         options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
-      //  options.setExperimentalOption("mobileEmulation", mobileEmulation);
+      //options.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+        //options.addArguments("headless=true");
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
