@@ -43,7 +43,7 @@ continue button - //*[@id="password-container"]/div[2]/button
 Password is too short
 Password is strong
 Можно вводить пароль не нажимат кнопку дальше и проверять на длиннсть и которкость пароля
-
+MQu
  */
 
 
