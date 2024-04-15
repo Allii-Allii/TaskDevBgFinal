@@ -1,5 +1,6 @@
 package org.selenium.base;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.example.driver.DriverFactory;
 import org.openqa.selenium.OutputType;
@@ -12,6 +13,9 @@ import org.testng.annotations.BeforeMethod;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -67,9 +71,11 @@ public class MainTest {
             File source = ts.getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
             String fileName = result.getName() + "_" + timestamp + ".png";
+            Path path = Paths.get("./Screenshots", fileName);
+
             try {
-                FileUtils.copyFile(source, new File("./Screenshots/" + fileName));
-                System.out.println("Screenshot taken: " + fileName);
+                Files.copy(source.toPath(), path);
+                Allure.addAttachment("Screenshot on Failure", "image/png", Files.newInputStream(path), ".png");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,3 +1,4 @@
+/*
 package org.selenium.tests;
 
 import com.opencsv.exceptions.CsvException;
@@ -31,3 +32,18 @@ public class Test1 {
     }
 
 }
+Sing up кнопка на главной сцене (xpath //*[@class='HeaderMenu-link HeaderMenu-link--sign-up flex-shrink-0 d-none d-lg-inline-block no-underline border color-border-default rounded px-2 py-1'])
+Куда ввводить мейл (".application-main.d-flex.flex-auto.flex-column #email")
+Кнопка контин (//*[@id="email-container"]/div[2]/button)
+
+Email is invalid or already taken - на проверку
+Create a password* - (.d-flex.flex-items-center.flex-column.flex-sm-row #password)
+continue button - //*[@id="password-container"]/div[2]/button
+
+Password is too short
+Password is strong
+Можно вводить пароль не нажимат кнопку дальше и проверять на длиннсть и которкость пароля
+
+ */
+
+

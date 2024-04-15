@@ -1,6 +1,7 @@
 package org.selenium.tests;
 
 import com.opencsv.exceptions.CsvException;
+import io.qameta.allure.*;
 import org.example.utils.CsvReader;
 import org.selenium.base.MainTest;
 import org.selenium.page.LogIn;
@@ -24,6 +25,10 @@ public class Tests extends MainTest {
     MainPage mainPage;
 
 
+    @Epic("Authentication")
+    @Feature("Login")
+    @Story("Successful Login")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testRegistrationForm() {
 
