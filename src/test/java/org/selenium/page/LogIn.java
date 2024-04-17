@@ -39,4 +39,6 @@ public class LogIn extends BasePage {
     public Header header () {
         return new Header();
     }
+    public MainPage mainPage () {
+        return new MainPage(); }
 }

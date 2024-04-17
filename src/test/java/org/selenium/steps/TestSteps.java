@@ -11,6 +11,11 @@ public class TestSteps {
 
     private LogIn loginPage = new LogIn();
 
+    @Given("remove cookies")
+    public void removeCookies() {
+        loginPage.mainPage().clickCookiesButton();
+    }
+
     @Given("the user click Enter button")
     public void theUserClickEnterButton() {
         loginPage.header().clickEnterButton();
@@ -43,6 +48,7 @@ public class TestSteps {
 
         assertEquals(loginPage.getErrorMassage(), messageError);
     }
+
 
 
 }
