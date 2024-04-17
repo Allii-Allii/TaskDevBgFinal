@@ -43,7 +43,13 @@ continue button - //*[@id="password-container"]/div[2]/button
 Password is too short
 Password is strong
 Можно вводить пароль не нажимат кнопку дальше и проверять на длиннсть и которкость пароля
-MQu
+
+Sign in - кнопка на главном екране //*[@class='HeaderMenu-link HeaderMenu-link--sign-in flex-shrink-0 no-underline d-block d-lg-inline-block border border-lg-0 rounded rounded-lg-0 p-2 p-lg-0']
+Куда ввводить мейл css = .application-main  #login_field
+куда вводить пароль css = .application-main  #password
+Sing in button - css = .application-main  .btn.btn-primary.btn-block.js-sign-in-button
+
  */
+
 
 
