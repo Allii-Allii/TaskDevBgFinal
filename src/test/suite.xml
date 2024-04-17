@@ -3,11 +3,8 @@
 
 <suite name="Test Demo Suite" parallel="methods" thread-count="4" data-provider-thread-count="4" verbose="1">
     <test name="Selenium Course Suite tests">
-        <packages>
-            <package name="org.selenium.tests.*"/>
-        </packages>
+        <classes>
+            <class name="org.selenium.CucumberTestNGRunner"/>
+        </classes>
     </test>
-    <listeners>
-        <listener class-name="org.testng.reporters.XMLReporter"/>
-    </listeners>
 </suite>

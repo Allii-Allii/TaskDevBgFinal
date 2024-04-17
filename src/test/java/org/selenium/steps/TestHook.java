@@ -1,7 +1,7 @@
-package org.selenium.base;
-
-import io.qameta.allure.Allure;
-import org.apache.commons.io.FileUtils;
+package org.selenium.steps;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.example.driver.DriverFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-public class MainTest {
+public class TestHook {
 
     private String url;
     private int implicitWait;
@@ -28,7 +28,7 @@ public class MainTest {
    // public WebDriver driver;
 
 
-    @BeforeMethod
+    @Before
     public void setUp() {
         setupBrowserDriver();
         loadUrl();
@@ -62,23 +62,15 @@ public class MainTest {
                 throw new IllegalStateException("Unsupported browser type");
         }
     }
-
-    @AfterMethod
-    public void tearDown(ITestResult result) {
+    @After
+    public void tearDown(Scenario scenario) {
         WebDriver driver = DriverFactory.getDriver();
-        if (ITestResult.FAILURE == result.getStatus()) {
-            TakesScreenshot ts = (TakesScreenshot) driver;
-            File source = ts.getScreenshotAs(OutputType.FILE);
-            String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
-            String fileName = result.getName() + "_" + timestamp + ".png";
-            Path path = Paths.get("./Screenshots", fileName);
 
-            try {
-                Files.copy(source.toPath(), path);
-                Allure.addAttachment("Screenshot on Failure", "image/png", Files.newInputStream(path), ".png");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if (scenario.isFailed()) {
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png",
+                    "Screenshot_" + new SimpleDateFormat("yyyy_mm_dd__hh_mm_ss").format(new Date()));
         }
         DriverFactory.quitDriver();
     }

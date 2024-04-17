@@ -35,4 +35,8 @@ public class LogIn extends BasePage {
         waitForElementToBeInvisible(errorMassageWaiter);
         return errorMessageWrongEmail.getText();
     }
+
+    public Header header () {
+        return new Header();
+    }
 }

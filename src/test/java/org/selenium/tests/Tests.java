@@ -1,9 +1,7 @@
 package org.selenium.tests;
 
-import com.opencsv.exceptions.CsvException;
-import io.qameta.allure.*;
-import org.example.utils.CsvReader;
-import org.selenium.base.MainTest;
+
+import org.selenium.steps.TestHook;
 import org.selenium.page.LogIn;
 import org.selenium.page.MainPage;
 import org.selenium.page.RegisterForm;
@@ -16,8 +14,8 @@ import java.io.IOException;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class Tests extends MainTest {
-    Header header;
+public class Tests extends TestHook {
+    /*Header header;
     RegisterForm registration;
 
     LogIn logIn;
@@ -68,5 +66,5 @@ public class Tests extends MainTest {
         logIn.clickLoginButton();
 
         assertEquals(logIn.getErrorMassage(), messageError);
-    }
+    }*/
 }

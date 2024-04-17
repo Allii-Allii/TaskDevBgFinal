@@ -1,7 +1,5 @@
 package org.selenium.page;
 
-import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,12 +25,6 @@ public class RegisterForm extends BasePage {
 
     @FindBy (css = "#user-registration-form #consent-error")
     private WebElement errorMassageCheckMark;
-
-    @Step ("Set first name")
-    public void enterFNameField (String fName){
-        fNameField.sendKeys(fName);
-    }
-
 
     public void enterLNameField (String lName){
         lNameField.sendKeys(lName);
